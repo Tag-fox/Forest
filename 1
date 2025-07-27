@@ -1,134 +1,339 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- 引入外部CSS，可自行替换为个性化样式 -->
-  <link rel="stylesheet" href="styles.css"> 
-  <title>Forest 网页模板</title>
-  <style>
-    /* 基础样式重置与通用设置，可按需扩展 */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      background-color: #f9f9f9;
-      color: #333;
-    }
-
-    .container {
-      width: 80%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    /* 大标题图片区域 */
-    .hero {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .hero img {
-      max-width: 100%;
-      height: auto;
-    }
-
-    h1,
-    h2,
-    h3 {
-      margin-bottom: 10px;
-    }
-
-    .section {
-      margin-bottom: 40px;
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 5px;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    }
-
-    /* 跳转链接样式，可自定义 */
-    .jump-link {
-      display: inline-block;
-      margin-top: 10px;
-      color: #007bff;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .jump-link:hover {
-      color: #0056b3;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>艺术家个人展示</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            color: #f8f9fa;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* 头部样式 */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-image {
+            max-width: 100%;
+            height: 300px;
+            background: linear-gradient(45deg, #ff9966, #ff5e62);
+            border-radius: 15px;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-image h1 {
+            font-size: 4rem;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px;
+        }
+        
+        .intro-text {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        /* 分割线样式 */
+        .divider {
+            height: 3px;
+            background: linear-gradient(to right, transparent, #ff9966, #ff5e62, transparent);
+            margin: 50px 0;
+            border: none;
+        }
+        
+        /* 服务介绍部分 */
+        .services-section {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            color: #ffcc5c;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .service-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .service-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #ff9966;
+        }
+        
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #ffcc5c;
+        }
+        
+        .service-card p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(45deg, #ff9966, #ff5e62);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+        
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 94, 98, 0.4);
+        }
+        
+        /* 内容介绍部分 */
+        .content-section {
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            backdrop-filter: blur(10px);
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .content-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .content-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .content-card h3 {
+字体大小:1.5雷姆；
+边距-底部:15px
+颜色:# ffcc5c
+        }
+        
+/* 页脚样式 */
+页脚{
+文本对齐:居中；
+填充:30px
+边距-顶部:50px
+背景:rgba(0，0，0，0.7)；
+边框半径:20px
+        }
+        
+。社交图标{
+边距-顶部:20px
+        }
+        
+。社交图标a {
+显示:内嵌-块；
+边距:0 15px
+font-size:2 rem；
+颜色:# ffcc5c
+转场:全0.3s缓和；
+        }
+        
+。社交图标a:悬停{
+颜色:# ff9966
+transform:translate y(-5px)；
+        }
+        
+/* 响应式设计 */
+@media(最大宽度:768像素){
+。标题-图像h1 {
+字体大小:2.5雷姆；
+            }
+            
+。第节-标题{
+font-size:2 rem；
+            }
+            
+。简介-文本{
+font-size:1 rem；
+            }
+        }
+        
+@media(最大宽度:480像素){
+。标题-图像{
+高度:200px
+            }
+            
+。标题-图像h1 {
+font-size:2 rem；
+            }
+            
+。服务图标{
+font-size:3r em；
+            }
+        }
+    </style>
 </head>
-
 <body>
-  <div class="container">
-    <!-- 大标题图片区域 -->
-    <div class="hero">
-      <!-- 替换为实际大标题图片地址，若本地需放对应路径 -->
-      <img src="forest-hero.jpg" alt="大标题图片"> 
-      <h1>Forest 平台</h1>
+    <div class="container">
+        <header>
+            <div class="header-image">
+                <h1>创意工坊</h1>
+            </div>
+            <div class="intro-text">
+                <p>欢迎来到我的创意世界！我是一名专业的兽装设计师、插画师和故事创作者。在这个充满想象力的空间里，我将艺术与工艺完美融合，创造出独特的毛茸茸伙伴和引人入胜的视觉故事。每一件作品都倾注了我的心血与热情，期待为同样热爱幻想世界的你带来惊喜与感动。</p>
+            </div>
+        </header>
+        
+        <hr class="divider">
+        
+        <section class="services-section">
+            <h2 class="section-title">我的创作服务</h2>
+            <p style="max-width: 800px; margin: 0 auto 30px; font-size: 1.1rem;">
+无论是寻找独一无二的毛茸伙伴,定制专属兽装,还是为你的故事添上视觉魔法,我都能提供专业且充满创意的解决方案。
+            </p>
+            
+            <div class="services-grid">
+                <div class="service-card" onclick="location.href='#custom'">
+                    <div class="service-icon">
+                        <i class="fas fa-paw"></i>
+                    </div>
+                    <h3>兽装定制</h3>
+                    <p>完全定制化的兽装设计服务，从概念到成品，打造属于你的独特毛茸形象。使用高品质材料，确保舒适度和耐用性。</p>
+                    <button class="btn">了解更多</button>
+                </div>
+                
+                <div class="service-card" onclick="location.href='#adoption'">
+                    <div class="service-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>掉落领养</h3>
+                    <p>定期推出的原创角色开放领养，每个角色都有独特的背景故事和设计理念。快速拥有属于你的特别伙伴！</p>
+                    <button class="btn">查看可领养</button>
+                </div>
+                
+                <div class="service-card" onclick="location.href='#artwork'">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>绘图约稿</h3>
+                    <p>开放各类插画、角色设计、场景绘制等约稿服务。无论是个人角色还是商业项目，都能满足您的需求。</p>
+                    <button class="btn">查看价目表</button>
+                </div>
+            </div>
+        </section>
+        
+        <div class="content-section">
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 30px;">
+                除了上述服务，我还创作丰富的原创内容，包括连载漫画和奇幻小说，带你进入充满想象力的世界。
+            </p>
+            
+            <hr class="divider">
+            
+            <div class="content-grid">
+                <div class="content-card" onclick="location.href='#comics'">
+                    <h3><i class="fas fa-book-open"></i> 漫画</h3>
+                    <p>原创奇幻漫画连载，讲述兽人世界的冒险故事。精美画风，引人入胜的情节，每月更新。</p>
+                </div>
+                
+                <div class="content-card" onclick="location.href='#novels'">
+                    <h3><i class="fas fa-feather-alt"></i> 小说</h3>
+                    <p>奇幻小说系列，构建宏大的世界观和丰富的角色设定。每周更新章节，支持电子书下载。</p>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2023 创意工坊 | 所有作品均为原创，保留所有权利</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-artstation"></i></a>
+                <a href="#"><i class="fab fa-patreon"></i></a>
+            </div>
+        </footer>
     </div>
 
-    <!-- 文字介绍区块 -->
-    <div id="intro" class="section">
-      <h2>文字介绍</h2>
-      <p>这里填写关于 Forest 平台的整体文字介绍内容，比如平台定位、愿景等……</p>
-    </div>
-
-    <!-- 三大业务区块 -->
-    <div class="section">
-      <h2>三大业务</h2>
-      <!-- 业务 1：兽装定制 -->
-      <div id="biz-costume" class="biz-item">
-        <h3>① 兽装定制</h3>
-        <p>兽装定制业务的具体文字描述……</p>
-        <!-- 跳转到对应详细页面，href 替换为实际页面地址 -->
-        <a class="jump-link" href="costume-detail.html">可跳转查看详情</a> 
-      </div>
-      <!-- 业务 2：掉落 -->
-      <div id="biz-drop" class="biz-item">
-        <h3>② 掉落</h3>
-        <p>掉落业务相关文字说明……</p>
-        <a class="jump-link" href="drop-detail.html">可跳转查看详情</a>
-      </div>
-      <!-- 业务 3：约稿 -->
-      <div id="biz-contract" class="biz-item">
-        <h3>③ 约稿</h3>
-        <p>约稿业务的文字介绍……</p>
-        <a class="jump-link" href="contract-detail.html">可跳转查看详情</a>
-      </div>
-    </div>
-
-    <!-- 另一处文字介绍区块 -->
-    <div id="another-intro" class="section">
-      <h2>文字介绍</h2>
-      <p>这里补充更多平台相关文字内容，比如发展历程、特色等……</p>
-    </div>
-
-    <!-- 作品区块 -->
-    <div class="section">
-      <p>（文字）可介绍作品相关说明，比如作品展示、分类等</p>
-      <!-- 漫画跳转 -->
-      <div class="work-item">
-        <h3>漫画</h3>
-        <a class="jump-link" href="comic.html">可跳转查看漫画内容</a>
-      </div>
-      <!-- 小说跳转 -->
-      <div class="work-item">
-        <h3>小说</h3>
-        <a class="jump-link" href="novel.html">可跳转查看小说内容</a>
-      </div>
-    </div>
-  </div>
+    <script>
+        // 简单的滚动效果
+        document.querySelectorAll('.btn, .service-card, .content-card').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                // 实际项目中这里会有页面跳转逻辑
+                // 此处仅做演示，显示提示信息
+                const serviceName = this.querySelector('h3') ? this.querySelector('h3').textContent : '内容';
+                alert(`即将跳转到${serviceName}页面...`);
+            });
+        });
+    </script>
 </body>
-
 </html>
